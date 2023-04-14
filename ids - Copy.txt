@@ -1,7 +1,0 @@
-sample
-sample2
-sample3
-remember
-no
-white
-spaces
