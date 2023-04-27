@@ -30,5 +30,7 @@ data -> Folder containing data used by the scripts
 	image_sample_2.png -> Second sample of deleted URL image
         
 	ids.txt -> Contains the generated/special ID's
+	
+	del_ids.txt -> Contains known deleted ID's
         
 Tesseract-OCR -> Contains a copy of Tesseract, version 5.0.0, feel free to update
