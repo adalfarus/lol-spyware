@@ -3,6 +3,7 @@ import itertools
 # Define the characters to use
 characters = 'abcdefghijklmnopqrstuvwxyz0123456789'
 
+print("The inputs are the length of the generated ids. Like 1-3 will generate all possible ids with the lengths of 1,2 and 3.")
 fr = int(input("From->"))
 to = int(input("To->"))+1
 
