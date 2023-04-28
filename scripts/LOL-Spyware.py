@@ -1,4 +1,4 @@
-# LOL-Spyware.py - V1.2
+# LOL-Spyware.py - V1.2.1
 import os
 import re
 import sys
@@ -43,9 +43,9 @@ def main(gen, ex_num, length, wait_all=False):
                         print(f"Not an image for ID {id}") # If there isn't an Image element
                         continue
                     image = Image.open(BytesIO(response.content))
-                    if not os.path.exists("data"): # If there isn't an data folder, create one
-                        os.makedirs("data")
-                    image.save(f"data/image_{id}.png") # Save Image to the data folder
+                    if not os.path.exists("images"): # If there isn't an images folder, create one
+                        os.makedirs("images")
+                    image.save(f"images/image_{id}.png") # Save Image to the images folder
                     print(f"Image for ID {id} saved successfully!")
                     count += 1 # For how many Images you want, only those that actually get saved count
                     if count == ex_num: # If desired number of images have been saved, exit the function
