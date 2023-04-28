@@ -1,10 +1,11 @@
-# runner-example-2.py - V1.0
+# runner-example-2.py - V1.1
 import subprocess
 import os
 import sys
 
 def var():
     def gen_wrapper():
+        global gen
         print("0 - Generates all ids, then uses them")
         print("1 - Generates all ids, shuffels them, then uses them")
         print("2 - Generates a new random id, each iteration")
@@ -12,16 +13,19 @@ def var():
         print("Quick Summary -> 0, 1, 2 or 3--0 takes the longest, but is the best, 2 is the fastest, but is the worst 3 uses ids.txt as the ids")
         gen = input("Gen: ")
     def ex_num_wrapper():
+        global ex_num
         print("Number - The number of times you want the main script to be executed")
         print("E - Scrape all possible images, with the selected method")
         print("Quick Summary -> The number of Images you want? e for all")
         ex_num = input("Execute Number of Times: ")
     def length_wrapper():
+        global length
         print("The longer the id the newer the photos scraped will be, but also the fewer images there are")
         print("4 has the most images, 7 is the newest, this could change with time")
         print("Quick Summary -> the longer the URL the newer the images, max should be seven")
         length = input("Length of URL: ")
     def keywords_wrapper():
+        global keywords
         print("Seperate with space")
         print("The Keywords you want filter the scraped image with")
         print("Quick Summary -> Your Keywords")
@@ -44,13 +48,20 @@ def var():
 
 def sps():
     def lol_spy_wrapper():
-        subprocess.run(["python", "scripts/LOL-Spyware.py", str(gen), str(ex_num), str(length), str(wait_all)])
+        if 'gen' in globals() and 'ex_num' in globals() and 'length' in globals() and 'wait_all' in globals() and 'keywords' in globals():
+            subprocess.run(["python", "scripts/LOL-Spyware.py", str(gen), str(ex_num), str(length), str(wait_all)])
+        else:
+            subprocess.run(["python", "scripts/LOL-Spyware.py"])
     def rem_sam_im_wrapper():
         subprocess.run(["python", "scripts/Remove-Sample-Images.py", "image_sample.png", "image_sample_2.png", "data", "images"])
     def del_dup_wrapper():
         subprocess.run(["python", "scripts/Delete-Duplicate-Files.py", "images"])
     def fil_im_wrapper():
-        subprocess.run(["python", "scripts/Filter-Images.py", "images", "filtered_images", keywords])
+        if 'keywords' in globals(): # locals()
+            subprocess.run(["python", "scripts/Filter-Images.py", "images", "filtered_images", keywords])
+        else:
+            print(keywords)
+            subprocess.run(["python", "scripts/Filter-Images.py", "images", "filtered_images"])
     def id_gen_wrapper():
         subprocess.run(["python", "scripts/id-generator.py"])
     options = {
@@ -124,5 +135,5 @@ if __name__ == "__main__":
 ##            os.remove("database.db")
 ##        finally:
 ##            create_encrypted_database("database.db", get_master_password())
-    print("Runner Example 2 v1.0 for LOL-Spyware v1.2\nCreated by Me :)")
+    print("Runner Example 2 v1.1 for LOL-Spyware v1.2\nCreated by Me :)")
     main()
