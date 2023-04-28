@@ -1,4 +1,4 @@
-# runner-example-2.py - V1.1
+# runner-example-2.py - V1.1.1
 import subprocess
 import os
 import sys
@@ -60,7 +60,6 @@ def sps():
         if 'keywords' in globals(): # locals()
             subprocess.run(["python", "scripts/Filter-Images.py", "images", "filtered_images", keywords])
         else:
-            print(keywords)
             subprocess.run(["python", "scripts/Filter-Images.py", "images", "filtered_images"])
     def id_gen_wrapper():
         subprocess.run(["python", "scripts/id-generator.py"])
@@ -135,5 +134,5 @@ if __name__ == "__main__":
 ##            os.remove("database.db")
 ##        finally:
 ##            create_encrypted_database("database.db", get_master_password())
-    print("Runner Example 2 v1.1 for LOL-Spyware v1.2\nCreated by Me :)")
+    print("Runner Example 2 v1.1.1 for LOL-Spyware v1.2.1\nCreated by Me :)")
     main()
