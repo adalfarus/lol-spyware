@@ -48,7 +48,7 @@ def var():
 
 def sps():
     def lol_spy_wrapper():
-        if 'gen' in globals() and 'ex_num' in globals() and 'length' in globals() and 'wait_all' in globals() and 'keywords' in globals():
+        if gen and ex_num and length and wait_all and keywords:
             subprocess.run(["python", "scripts/LOL-Spyware.py", str(gen), str(ex_num), str(length), str(wait_all)])
         else:
             subprocess.run(["python", "scripts/LOL-Spyware.py"])
@@ -57,7 +57,7 @@ def sps():
     def del_dup_wrapper():
         subprocess.run(["python", "scripts/Delete-Duplicate-Files.py", "images"])
     def fil_im_wrapper():
-        if 'keywords' in globals(): # locals()
+        if keywords:
             subprocess.run(["python", "scripts/Filter-Images.py", "images", "filtered_images", keywords])
         else:
             subprocess.run(["python", "scripts/Filter-Images.py", "images", "filtered_images"])
@@ -134,5 +134,5 @@ if __name__ == "__main__":
 ##            os.remove("database.db")
 ##        finally:
 ##            create_encrypted_database("database.db", get_master_password())
-    print("Runner Example 2 v1.1.1 for LOL-Spyware v1.2.1\nCreated by Me :)")
+    print("Runner Example 2 v1.1.2 for LOL-Spyware v1.2.1\nCreated by Me :)")
     main()
