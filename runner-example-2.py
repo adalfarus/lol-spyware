@@ -1,11 +1,13 @@
-# runner-example-2.py - V1.1.2
+# runner-example-2.py - V1.1.4
 import subprocess
 import os
 import sys
 
+global gen, ex_num, length, keywords
+gen, ex_num, length, keywords = [None]*4
+
 def var():
     def gen_wrapper():
-        global gen
         print("0 - Generates all ids, then uses them")
         print("1 - Generates all ids, shuffels them, then uses them")
         print("2 - Generates a new random id, each iteration")
@@ -13,19 +15,16 @@ def var():
         print("Quick Summary -> 0, 1, 2 or 3--0 takes the longest, but is the best, 2 is the fastest, but is the worst 3 uses ids.txt as the ids")
         gen = input("Gen: ")
     def ex_num_wrapper():
-        global ex_num
         print("Number - The number of times you want the main script to be executed")
         print("E - Scrape all possible images, with the selected method")
         print("Quick Summary -> The number of Images you want? e for all")
         ex_num = input("Execute Number of Times: ")
     def length_wrapper():
-        global length
         print("The longer the id the newer the photos scraped will be, but also the fewer images there are")
         print("4 has the most images, 7 is the newest, this could change with time")
         print("Quick Summary -> the longer the URL the newer the images, max should be seven")
         length = input("Length of URL: ")
     def keywords_wrapper():
-        global keywords
         print("Seperate with space")
         print("The Keywords you want filter the scraped image with")
         print("Quick Summary -> Your Keywords")
@@ -89,7 +88,10 @@ def li_wrapper():
         print(directory + '/')
         
         # Get a list of files and directories in the current directory
-        items = os.listdir(directory)
+        try:
+            items = os.listdir(directory)
+        except FileNotFoundError:
+            print(f"No Images found in dir {directory}"); continue
         
         # Loop through each item in the directory
         for item in items:
@@ -134,5 +136,5 @@ if __name__ == "__main__":
 ##            os.remove("database.db")
 ##        finally:
 ##            create_encrypted_database("database.db", get_master_password())
-    print("Runner Example 2 v1.1.2 for LOL-Spyware v1.2.1\nCreated by Me :)")
+    print("Runner Example 2 v1.1.4 for LOL-Spyware v1.2.1\nCreated by Me :)")
     main()
