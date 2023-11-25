@@ -15,6 +15,7 @@ The existence of filtered_images and Filter-Images.py is included for educationa
 - **Filter-Images.py**: Scans images for keywords/parts of keywords, organizing them into a designated folder.
 - **Delete-Duplicate-Files.py**: Eliminates duplicate files from a chosen folder.
 - **Runner-Example.py**: Demonstrates integrating all scripts into a single application using endpoints.
+- **Runner-Example-2.py**: Basically just a differently build Runner-Example.py.
 - **id-generator.py**: Creates IDs for a specified range.
 
 ### File Structure:
