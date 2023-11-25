@@ -1,4 +1,4 @@
-# LOL-Spyware.py - V1.2.1
+# LOL-Spyware.py - V1.2.2
 import os
 import re
 import sys
@@ -11,8 +11,7 @@ from itertools import product, permutations
 
 def main(gen, ex_num, length, wait_all=False):
     url_pattern = re.compile(r'(?<!:)//') # Compiling common URL pattern to regular expression object
-    def no_generator_chosen():
-        raise Exception("No Generator chosen")
+    if not gen or not any([x==gen for x in range(4)]): raise Exception("No Generator chosen")
 
     def del_ids():
         with open('./data/del_ids.txt', 'r') as f:
@@ -106,8 +105,18 @@ def main(gen, ex_num, length, wait_all=False):
         pass # If statement later in code is used to generate a new id with each iteration
     elif gen == 3:
         ids = generate_id_4()
-    else:
-        raise Exception("No Generator chosen")
+    else: return
+
+#    match gen:
+#        case 0: # Generate Ids with selected generator
+#            ids = generate_id(length)
+#        case 1:
+#            ids = generate_id_2(length)
+#        case 2:
+#            pass # If statement later in code is used to generate a new id with each iteration
+#        case 3:
+#            ids = generate_id_4()
+#        case _: return
         
     count = 0
     
